@@ -20,3 +20,10 @@ local opts = {}
 require("lazy").setup("plugins")
 
 vim.keymap.set("n", "<leader>y", ":%y+<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end)
+
+vim.keymap.set("v", "<leader>/", function()
+  require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end)
+
+vim.keymap.set('v', '<leader>c', '"+y', { noremap = true, silent = true })
